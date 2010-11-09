@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+** The contents of this file are Copyright (c) 2010 by Juice Analytics, Inc.
+** In addition, the contents are proprietary and confidential.
+**
+** *************************************************************************
+-->
+
+<objects xmlns="http://www.springactionscript.org/schema/objects"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springactionscript.org/schema/objects
+         http://www.springactionscript.org/schema/objects/spring-actionscript-objects-1.0.xsd">
+
+    <!--
+      Set-up Spring ActionScript context configuration to support [Autowired] and [EventHandler] meta-data processing.
+    -->
+    <object id="autowiringStageProcessor"
+            class="org.springextensions.actionscript.stage.DefaultAutowiringStageProcessor"/>
+    <object id="eventHandlerProcessor"
+            class="org.springextensions.actionscript.ioc.factory.config.EventHandlerMetaDataPostProcessor"/>
+
+
+    <!--
+        Instantiate and register our application model here so other parts of the app
+        can have its members (or the instance itself) injected into their own local properties.
+    -->
+    <object id="appModel" class="model.AppModel">
+         <property name="url" value="http://media.juiceanalytics.com/census/CENSUS_STATEAGESEX.csv"/>
+         <property name="skinName" value="red"/>
+         <property name="levels">
+         	<array>
+         		<value>SEX</value>
+         		<value>STATE</value>
+         	</array>
+         </property>
+         <property name="title" value="Hello David May"/>
+         <property name="colorPalettes">
+         	<array-collection>
+         		<value>bone</value>
+         		<value>RdGy</value>
+         		<value>Greens</value>
+         		<value>Blues</value>
+         	</array-collection>
+         </property>
+         <property name="colorField" value="wtdaverage__POP2008__POP2000"/>
+         <property name="sizeField" value="POP2000"/>
+    </object>
+
+
+    <!--
+        This class is responsible for application navigation, dispatching server side calls and event handling.
+        Pass appModel as a constructor argument (Autowiring is supported only in display objects).
+    -->
+    <object id="applicationPresenter" class="infrastructure.ApplicationPresenter">
+        <constructor-arg ref="appModel"/>
+    </object>
+
+
+</objects>
