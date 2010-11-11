@@ -1,4 +1,4 @@
-package infrastructure.tasks
+package org.juicekit.app.treemap.infrastructure.tasks
 {
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
@@ -6,7 +6,7 @@ package infrastructure.tasks
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	
-	import model.AppModel;
+	import org.juicekit.app.treemap.model.AppModel;
 	
 	import mx.collections.ArrayCollection;
 	import mx.rpc.events.FaultEvent;

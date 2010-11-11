@@ -1,11 +1,11 @@
-package infrastructure
+package org.juicekit.app.treemap.infrastructure
 {
 	import flash.events.Event;
 	
-	import infrastructure.tasks.FetchTreemapDataFromUrlCommand;
-	import infrastructure.tasks.InitializeTreemapCompositeCommand;
+	import org.juicekit.app.treemap.infrastructure.tasks.FetchTreemapDataFromUrlCommand;
+	import org.juicekit.app.treemap.infrastructure.tasks.InitializeTreemapCompositeCommand;
 	
-	import model.AppModel;
+	import org.juicekit.app.treemap.model.AppModel;
 	
 	import org.as3commons.logging.ILogger;
 	import org.as3commons.logging.LoggerFactory;

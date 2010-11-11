@@ -5,7 +5,7 @@
         width="700" height="500" xmlns:controls="org.juicekit.controls.*">
     
     <fx:Metadata>
-        [HostComponent("view.TreemapContainer")]
+        [HostComponent("org.juicekit.app.treemap.view.TreemapContainer")]
     </fx:Metadata>
     
     <fx:Script>
@@ -13,14 +13,24 @@
         import org.juicekit.util.Strings;
     ]]>
     </fx:Script>
-
+    
     <s:states>
         <s:State name="normal"/>
         <s:State name="disabled"/>
         <s:State name="loading"/>
     </s:states>
-  
-
+    
+    <!--- Defines the appearance of the SkinnableContainer class's background. -->
+    <s:Rect id="background" left="0" right="0" top="0" bottom="0">
+        <s:fill>
+            <s:LinearGradient rotation="90">
+                <s:GradientEntry color="0xff9999" alpha="0.5"/>
+                <s:GradientEntry color="0xff6600"/>
+            </s:LinearGradient>
+        </s:fill>
+    </s:Rect>
+    
+    
     <!--
     Note: setting the minimum size to 0 here so that changes to the host component's
     size will not be thwarted by this skin part's minimum size.   This is a compromise,
@@ -29,10 +39,10 @@
     <!--- @copy spark.components.SkinnableContainer#contentGroup -->
     <s:VGroup id="contentGroup" left="0" right="0" top="0" bottom="0" minWidth="0" minHeight="0">
         
-        <s:Label id="titleLabel" width="100%" fontSize="18" fontWeight="bold" text="{this.hostComponent.appModel.title}"/>
+        <s:Label id="titleLabel" width="100%" fontSize="24" fontFamily="Georgia" fontWeight="normal" text="{this.hostComponent.appModel.title}"/>
         
         <controls:TreeMapZoomControl tree="{treemap}"/>
-
+        
         <!-- 
         The treemap itself.
         
@@ -48,7 +58,7 @@
                                      styleFromDataRoot="true" 
                                      data="{this.hostComponent.appModel.treeData}"
                                      
-                                     fontFamily="Arial"
+                                     fontFamily="Georgia"
                                      fontSize="16"
                                      labelEncodingField="name"
                                      labelColorStrategy="glow"
@@ -61,12 +71,14 @@
                                      strokeColors="[0xffffff, 0xffffff, 0xffffff, 0x333333]"
                                      strokeAlphas="[1,1,1,1]"
                                      strokeThicknesses="[0,3,1,0.25]"/>
-            
-            <s:Label width="200" text="{Strings.format('{0:0.000}', 123456.663632)}"/>
+
+            <s:VGroup width="200">
+                <s:ComboBox id="paletteCmb" dataProvider="{this.hostComponent.appModel.colorPalettes}" selectedIndex="0"/>
+                <s:Label width="200" text="{Strings.format('Size: {0:0}\nColor:{1:0}', this.hostComponent.selectedData.size, this.hostComponent.selectedData.color)}"/>
+            </s:VGroup>
         </s:HGroup>
-
-        <s:ComboBox id="paletteCmb" dataProvider="{this.hostComponent.appModel.colorPalettes}" selectedIndex="0"/>
-
+        
+        
     </s:VGroup>
     
 </s:Skin>

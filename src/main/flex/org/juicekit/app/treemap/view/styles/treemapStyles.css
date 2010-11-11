@@ -5,5 +5,5 @@
 
 vw|TreemapContainer
 {
-    skinClass: ClassReference("view.skins.TreemapContainerBlackSkin");
+    skinClass: ClassReference("org.juicekit.app.treemap.view.skins.TreemapContainerBlackSkin");
 }

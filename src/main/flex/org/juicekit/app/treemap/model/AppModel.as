@@ -1,4 +1,4 @@
-package model
+package org.juicekit.app.treemap.model
 {
     import flare.vis.data.Tree;
     
@@ -6,9 +6,9 @@ package model
     
     import org.juicekit.query.methods.*;
     
-    import view.skins.TreemapContainerBlackSkin;
-    import view.skins.TreemapContainerRedSkin;
-    import view.skins.TreemapContainerWhiteSkin;
+    import org.juicekit.app.treemap.view.skins.TreemapContainerBlackSkin;
+    import org.juicekit.app.treemap.view.skins.TreemapContainerRedSkin;
+    import org.juicekit.app.treemap.view.skins.TreemapContainerWhiteSkin;
 
 	[Bindable]
 	public class AppModel

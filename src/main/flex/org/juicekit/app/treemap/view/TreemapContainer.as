@@ -1,10 +1,10 @@
-package view
+package org.juicekit.app.treemap.view
 {
     import flash.events.Event;
     
-    import infrastructure.ApplicationPresenter;
+    import org.juicekit.app.treemap.infrastructure.ApplicationPresenter;
     
-    import model.AppModel;
+    import org.juicekit.app.treemap.model.AppModel;
     
     import mx.core.ClassFactory;
     
@@ -16,7 +16,7 @@ package view
     import spark.components.Label;
     import spark.components.SkinnableContainer;
     
-    import view.skins.TreemapContainerWhiteSkin;
+    import org.juicekit.app.treemap.view.skins.TreemapContainerWhiteSkin;
     
     public class TreemapContainer extends SkinnableContainer
     {

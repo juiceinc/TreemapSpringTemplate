@@ -4,24 +4,19 @@
 							 xmlns:mx="library://ns.adobe.com/flex/mx" 
 							 minWidth="955" minHeight="600" 
                              backgroundColor="white" 
-							 applicationComplete="onApplicationComplete(event);" xmlns:view="view.*">
-    
+							 applicationComplete="onApplicationComplete(event)">
 
 	<fx:Script>
 		<![CDATA[
-            import infrastructure.ApplicationPresenter;
-            
             import mx.controls.Button;
             import mx.events.FlexEvent;
             
+            import org.juicekit.app.treemap.infrastructure.ApplicationPresenter;
+            import org.juicekit.app.treemap.view.TreemapContainer;
             import org.springextensions.actionscript.context.support.FlexXMLApplicationContext;
             import org.springextensions.actionscript.ioc.factory.config.EventHandlerMetaDataPostProcessor;
             import org.springextensions.actionscript.stage.DefaultAutowiringStageProcessor;
-            
-            import view.TreemapContainer;
-            import view.skins.TreemapContainerBlackSkin;
-            import view.skins.TreemapContainerWhiteSkin;
-            			
+
 			
 			/**
 			 * Force the compiler to include the code for classes created in the context.
@@ -66,6 +61,6 @@
 		]]>
 	</fx:Script>
 
-    <fx:Style source="view/styles/treemapStyles.css"/>
+    <fx:Style source="org/juicekit/app/treemap/view/styles/treemapStyles.css"/>
 
 </s:Application>

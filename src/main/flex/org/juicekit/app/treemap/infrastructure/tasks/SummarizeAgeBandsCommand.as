@@ -1,6 +1,6 @@
-package infrastructure.tasks
+package org.juicekit.app.treemap.infrastructure.tasks
 {
-    import model.AppModel;
+    import org.juicekit.app.treemap.model.AppModel;
     
     import mx.collections.ArrayCollection;
     import mx.rpc.http.HTTPService;
