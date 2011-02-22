@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Objects
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns="http://www.springactionscript.org/mxml/config"
+    xmlns:app="org.springextensions.actionscript.samples.movieapp.*">
+    
+    <Object id="autowiringStageProcessor"
+            clazz="org.springextensions.actionscript.stage.DefaultAutowiringStageProcessor"/>
+    <Object id="eventHandlerProcessor"
+            clazz="org.springextensions.actionscript.ioc.factory.config.EventHandlerMetaDataPostProcessor"/>
+    
+
+    <!--
+    Instantiate and register our application model here so other parts of the app
+    can have its members (or the instance itself) injected into their own local properties.
+    -->
+    <Object id="appModel" clazz="org.juicekit.app.treemap.model.AppModel">
+    </Object>
+
+    
+    <!--
+    This class is responsible for application navigation, dispatching server side calls and event handling.
+    Pass appModel as a constructor argument (Autowiring is supported only in display objects).
+    -->
+    <Object id="applicationPresenter" clazz="org.juicekit.app.treemap.infrastructure.ApplicationPresenter">
+        <ConstructorArg ref="{appModel}"/>
+    </Object>
+    
+</Objects>

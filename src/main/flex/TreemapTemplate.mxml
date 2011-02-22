@@ -14,6 +14,7 @@
             import org.juicekit.app.treemap.infrastructure.ApplicationPresenter;
             import org.juicekit.app.treemap.view.TreemapContainer;
             import org.springextensions.actionscript.context.support.FlexXMLApplicationContext;
+            import org.springextensions.actionscript.context.support.MXMLApplicationContext;
             import org.springextensions.actionscript.ioc.factory.config.EventHandlerMetaDataPostProcessor;
             import org.springextensions.actionscript.stage.DefaultAutowiringStageProcessor;
 
@@ -31,7 +32,7 @@
 			/**
 			 * Holds a reference to the application context.
 			 */
-			private var _appContext:FlexXMLApplicationContext;
+			private var _appContext:MXMLApplicationContext;
 			
 			
 			/**
@@ -39,13 +40,13 @@
 			 * This approach helps limit the initial loading screen time.
 			 */
 			private function onApplicationComplete(event:FlexEvent):void {
-				_appContext = new FlexXMLApplicationContext();
-				_appContext.addConfigLocation("application-context.xml");
+				_appContext = new MXMLApplicationContext(TreemapApplicationContext);
+                // listen for the object definitions loading to complete (loaded and parsed mxml object definitions)
 				_appContext.addEventListener(Event.COMPLETE, onAppContextLoad);
-				_appContext.addEventListener(IOErrorEvent.IO_ERROR, onAppContextFail);
 				_appContext.load();
 			}
 			
+            
 			private function onAppContextLoad(event:Event):void {
 				// Instantiate the visual root after the context is initialized.
                 this.addElement(new TreemapContainer());                
@@ -54,9 +55,6 @@
             [Bindable]
             public var tmc:TreemapContainer;
 
-			private function onAppContextFail(event:Event):void {
-				trace("application context load failed");
-			}
 			
 		]]>
 	</fx:Script>
