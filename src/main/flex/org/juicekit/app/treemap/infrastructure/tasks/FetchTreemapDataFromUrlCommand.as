@@ -22,14 +22,10 @@ package org.juicekit.app.treemap.infrastructure.tasks
 	{
 		private var _appModel:AppModel;
 
-        /** Storage for the url to pull data from */
-        private var _url:String;        
-        
-		public function FetchTreemapDataFromUrlCommand(appModel:AppModel, url:String)
+		public function FetchTreemapDataFromUrlCommand(appModel:AppModel)
 		{
 			super();//optional parameters: timeoutInMilliseconds, autoStartTimeout
             _appModel = appModel;
-			_url = url;
 		}
         
         
@@ -42,15 +38,15 @@ package org.juicekit.app.treemap.infrastructure.tasks
             loader.addEventListener(IOErrorEvent.IO_ERROR, faultHandler);
             loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, faultHandler);
             
-            loader.load(new URLRequest(_url));
+            loader.load(new URLRequest(_appModel.url));
             return this;
         }
         
-        
+       
         /**
          * Handle dataLoader faults
          */
-        protected function faultHandler(event:FaultEvent):void {
+        protected function faultHandler(event:Event):void {
             dispatchErrorEvent(event);
         }
             

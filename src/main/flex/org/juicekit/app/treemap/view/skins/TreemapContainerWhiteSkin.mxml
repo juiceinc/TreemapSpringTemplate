@@ -55,8 +55,8 @@
                                      truncateToFit="true"
                                      
                                      palette="{paletteCmb.selectedItem}"
-                                     colorEncodingField="color"
-                                     sizeEncodingField="size"                                 
+                                     colorEncodingField="POP2000"
+                                     sizeEncodingField="POP2000"                                 
                                      
                                      strokeColors="[0xffffff, 0xffffff, 0xffffff, 0x333333]"
                                      strokeAlphas="[1,1,1,1]"

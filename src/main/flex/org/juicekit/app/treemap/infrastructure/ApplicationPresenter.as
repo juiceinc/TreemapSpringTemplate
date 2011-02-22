@@ -11,6 +11,10 @@ package org.juicekit.app.treemap.infrastructure
 	import org.as3commons.logging.LoggerFactory;
 	import org.springextensions.actionscript.core.command.ICommand;
 
+    
+    /**
+    * The application presenter receives events and dispatches the appropriate commands
+    */
 	public class ApplicationPresenter
 	{
 		private var _appModel:AppModel;
@@ -28,7 +32,7 @@ package org.juicekit.app.treemap.infrastructure
         [EventHandler]
 		public function loadData():void
 		{
-			logger.debug("Trigger command to retreive data");
+			logger.debug("Trigger command to retrieve data");
             
             //var cmd:ICommand = new FetchTreemapDataFromUrlCommand(_appModel, _appModel.url);
             var cmd:ICommand = new InitializeTreemapCompositeCommand(_appModel);
@@ -36,16 +40,8 @@ package org.juicekit.app.treemap.infrastructure
 		}
 
         
-		[EventHandler(name="loadData")]
-		[EventHandler(name="getSomeOtherMessage")]
-		public function listenToEverythingHandler(e:Event):void
-		{
-			logger.debug("caught one of the events");
-		}
-        
-        
         /**
-        * Tell the presenter to start.
+        * Tell the presenter to start. This is a convention.
         */
         public function go():void {
             var cmd:ICommand = new InitializeTreemapCompositeCommand(_appModel);

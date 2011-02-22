@@ -2,17 +2,19 @@ package org.juicekit.app.treemap.model
 {
     import flare.vis.data.Tree;
     
-    import mx.collections.ArrayCollection;
+    import flash.utils.Dictionary;
     
-    import org.juicekit.query.methods.*;
+    import mx.collections.ArrayCollection;
     
     import org.juicekit.app.treemap.view.skins.TreemapContainerBlackSkin;
     import org.juicekit.app.treemap.view.skins.TreemapContainerRedSkin;
     import org.juicekit.app.treemap.view.skins.TreemapContainerWhiteSkin;
+    import org.juicekit.query.methods.*;
 
 	[Bindable]
 	public class AppModel
 	{
+        public var rawConfig:Dictionary = new Dictionary();
 		
 		public var url:String;
         
@@ -25,16 +27,16 @@ package org.juicekit.app.treemap.model
         /**
         * The class to use for the skin
         */
-        public var skin:Class = TreemapContainerBlackSkin; 
+        public var skin:Class = TreemapContainerWhiteSkin; 
         
         public function set skinName(v:String):void {
-            if (v == 'white') {
-                skin = TreemapContainerWhiteSkin;
-            } else if (v=='red') {
-                skin = TreemapContainerRedSkin;
-            } else {
-                skin = TreemapContainerBlackSkin;
-            }
+//            if (v == 'white') {
+//                skin = TreemapContainerWhiteSkin;
+//            } else if (v=='red') {
+//                skin = TreemapContainerRedSkin;
+//            } else {
+//                skin = TreemapContainerBlackSkin;
+//            }
         }
         
         /**
@@ -64,7 +66,7 @@ package org.juicekit.app.treemap.model
         /**
         * Treemap colorfield
         */
-        public var colorField:String = 'pctChange';
+        public var colorField:String = 'POP2008';
         
 //        public var colorFields:String = 'pctchange__POP2008__POP2000';
 //        'wtdaverage__POP2008__POP2000
